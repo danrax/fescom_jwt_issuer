@@ -1,0 +1,31 @@
+fescom:
+  jwtSecret: bezKoderSecretKey
+  jwtExpirationMs: '3600000'
+  jwtRefreshExpirationMs: '86400000'
+  version: '0.0.1-SNAPSHOT'
+
+spring:
+  flyway:
+    enabled: true
+    locations: classpath:db/scripts/migrations
+    url: jdbc:mysql://localhost:3306/feria-dev
+    user: "root"
+    password: "daniel.58"
+    schema: "roles"
+    baselineOnMigrate: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/feria-dev
+    username: "root"
+    password: "daniel.58"
+  jpa:
+    hibernate:
+      dialect: org.hibernate.dialect.H2Dialect
+      ddl-auto: create-drop
+
+rsa:
+  private-key: classpath:certs/private.pem
+  public-key: classpath:certs/public.pem
+
+  hibernate:
+    hbm2ddl:
+      auto: update

@@ -1,0 +1,16 @@
+# Spring Datasource, Spring Data...
+
+# App Properties
+fescom.jwtSecret= bezKoderSecretKey
+fescom.jwtExpirationMs= 3600000
+fescom.jwtRefreshExpirationMs= 86400000
+
+## For test
+#bezkoder.app.jwtExpirationMs= 60000
+#bezkoder.app.jwtRefreshExpirationMs= 120000
+
+spring:
+flyway:
+enabled: true
+locations: classpath:/db/scripts/migration
+schemas: refactorizando
