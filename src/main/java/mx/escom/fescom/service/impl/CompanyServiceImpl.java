@@ -4,7 +4,9 @@ import mx.escom.fescom.dtos.CompanyDto;
 import mx.escom.fescom.mappers.CompanyMapper;
 import mx.escom.fescom.repositories.CompanyRepository;
 import mx.escom.fescom.service.CompanyService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CompanyServiceImpl implements CompanyService {
 
     private final CompanyRepository companyRepository;

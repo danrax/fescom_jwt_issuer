@@ -5,5 +5,4 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface JobPostRepository extends JpaRepository<JobPost, Long> {
 
-    JobPost findJobByCompany_idAndUser_Id(Long companyId, Long userId);
 }

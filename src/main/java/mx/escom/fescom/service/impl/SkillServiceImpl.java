@@ -6,10 +6,12 @@ import mx.escom.fescom.entities.Skill;
 import mx.escom.fescom.mappers.SkillMapper;
 import mx.escom.fescom.repositories.SkillRepository;
 import mx.escom.fescom.service.SkillService;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class SkillServiceImpl implements SkillService {
 
     private final SkillMapper skillMapper = SkillMapper.INSTANCE;
