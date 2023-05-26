@@ -12,7 +12,7 @@ public class Company {
 
     @Id
     @Column(name = "company_id")
-    private long id;
+    private Long id;
 
     @Column(name = "name")
     private String name;

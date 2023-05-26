@@ -6,7 +6,7 @@ import mx.escom.fescom.entities.Skill;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-04-27T21:15:21-0600",
+    date = "2023-03-09T22:07:13-0600",
     comments = "version: 1.5.3.Final, compiler: javac, environment: Java 17.0.6 (Azul Systems, Inc.)"
 )
 public class SkillMapperImpl implements SkillMapper {

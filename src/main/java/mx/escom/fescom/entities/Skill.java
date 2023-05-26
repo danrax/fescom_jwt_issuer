@@ -11,7 +11,7 @@ public class Skill {
 
     @Id
     @Column(name = "skill_id")
-    private long id;
+    private Long id;
 
     @Column(name = "name")
     private int name;

@@ -13,5 +13,6 @@ public interface SkillMapper {
 
     @Mapping(target = "createdAt", ignore = true)
     @Mapping(target = "updatedAt", ignore = true)
-    Skill SkillSetToSkill(SkillSet skillSet);
+    @Mapping(target = "candidate", ignore = true)
+    Skill toEntity(SkillSet skillSet);
 }

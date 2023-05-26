@@ -3,11 +3,11 @@ package mx.escom.fescom.dtos;
 import lombok.Data;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 @Data
 public class ExperienceDetailDto {
-    private UUID id;
+
+    private Long id;
     private Boolean isCurrentJob;
     private LocalDate startDate;
     private LocalDate endDate;

@@ -12,7 +12,7 @@ public class JobPost {
 
     @Id
     @Column(name = "job_post_id")
-    private long id;
+    private Long id;
 
     @Column(name = "is_active")
     private Boolean isActive;
