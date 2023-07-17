@@ -58,7 +58,7 @@ public class CompanyServiceImpl implements CompanyService {
     @Override
     public GenericResponse inviteCompany(CompanyDto companyDto, MultipartFile imageFile) {
 
-        Optional<Company> companyOptional = companyRepository.findByEmail(companyDto.getEmail());
+        Optional<Company> companyOptional = companyRepository.findByActiveEmail(companyDto.getEmail());
         if ( !companyOptional.isPresent() ){
             throw new HttpClientErrorException(HttpStatus.BAD_REQUEST,
                     "Company already exist for email: " + companyDto.getEmail());
@@ -79,7 +79,7 @@ public class CompanyServiceImpl implements CompanyService {
 
         if(isValidToken(userDto.getValidationToken())){
 
-            Optional<Company> companyOptional = companyRepository.findByEmail(userDto.getEmail());
+            Optional<Company> companyOptional = companyRepository.findByActiveEmail(userDto.getEmail());
             if (companyOptional.isPresent()){
 
                 User user = User.builder()

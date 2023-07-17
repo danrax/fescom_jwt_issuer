@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1")
 public class HealthController {
 
-
+    private final String projectVersion = "Fescom 1.0.0";
     @GetMapping("/health")
     public String authenticateUser(Authentication authentication) {
-        return "Hello World ";
+        return projectVersion;
     }
 }

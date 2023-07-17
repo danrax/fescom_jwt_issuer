@@ -77,7 +77,7 @@ public class CandidateController {
         return ResponseEntity.noContent().build();
     }
 
-    @DeleteMapping("/candidateId")
+    @DeleteMapping("/{candidateId}")
     public ResponseEntity<Void> deleteCandidate(@PathVariable Long candidateId){
         candidateService.deleteCandidate(candidateId);
         return ResponseEntity.noContent().build();
