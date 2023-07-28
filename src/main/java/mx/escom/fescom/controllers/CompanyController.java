@@ -74,4 +74,11 @@ public class CompanyController {
         return ResponseEntity.noContent().build();
     }
 
+    @GetMapping("/{companyId}/candidates-applied/{jobPostId}")
+    public ResponseEntity<Void> sendApplyCandidates( @PathVariable Long companyId, @PathVariable Long jobPostId){
+
+        companyService.sendApplyCandidates(companyId, jobPostId);
+        return ResponseEntity.noContent().build();
+    }
+
 }

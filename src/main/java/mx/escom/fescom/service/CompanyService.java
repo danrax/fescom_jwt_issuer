@@ -22,4 +22,6 @@ public interface CompanyService {
     CompanyDto getCompanyById(Long companyId);
 
     GenericResponse deleteCompany(Long companyId);
+
+    void sendApplyCandidates(Long companyId, Long jobPostId);
 }

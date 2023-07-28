@@ -5,6 +5,7 @@ import mx.escom.fescom.dtos.CompanyDto;
 import mx.escom.fescom.dtos.GenericResponse;
 import mx.escom.fescom.entities.Company;
 import mx.escom.fescom.entities.Image;
+import mx.escom.fescom.entities.JobPost;
 import mx.escom.fescom.entities.User;
 import mx.escom.fescom.mappers.CompanyMapper;
 import mx.escom.fescom.repositories.CompanyRepository;
@@ -32,19 +33,19 @@ public class CompanyServiceImpl implements CompanyService {
     private final StorageServiceImpl storageService;
     private final ImageServiceImpl imageService;
     private final CommsServiceImpl commsService;
+    private final JobPostServiceImpl jobPostService;
 
     private final CompanyRepository companyRepository;
-    private final UserRepository userRepository;
     private final RoleRepository roleRepository;
 
     public CompanyServiceImpl(CompanyRepository companyRepository, StorageServiceImpl storageService,
                               ImageServiceImpl imageService, CommsServiceImpl commsService,
-                              UserRepository userRepository, RoleRepository roleRepository) {
+                              JobPostServiceImpl jobPostService, UserRepository userRepository, RoleRepository roleRepository) {
         this.companyRepository = companyRepository;
         this.storageService = storageService;
         this.imageService = imageService;
         this.commsService = commsService;
-        this.userRepository = userRepository;
+        this.jobPostService = jobPostService;
         this.roleRepository = roleRepository;
     }
 
@@ -140,6 +141,16 @@ public class CompanyServiceImpl implements CompanyService {
         companyRepository.deleteById(companyId);
 
         return new GenericResponse(HttpStatus.NO_CONTENT.value(), "Deleted Successfully");
+    }
+
+    @Override
+    public void sendApplyCandidates(Long companyId, Long jobPostId) {
+        CompanyDto companyDto = this.getCompanyById(companyId);
+
+        JobPost jobpost = jobPostService.findJobPostByIdAndCompanyId(
+                CompanyMapper.INSTANCE.toEntity(companyDto), jobPostId);
+
+        commsService.sendJobPostEmail(jobpost);
     }
 
     private boolean isValidToken(String validationToken) {
