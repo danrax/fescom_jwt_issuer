@@ -2,9 +2,7 @@ package mx.escom.fescom.entities;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity(name = "uploaded_image")
@@ -13,6 +11,7 @@ public class Image {
 
     @Id
     @Column(name = "image_id")
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private long imageId;
 
     @Column(name = "url")

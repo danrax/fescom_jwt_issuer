@@ -1,6 +1,7 @@
 package mx.escom.fescom.entities;
 
 import lombok.Data;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -12,6 +13,7 @@ public class Company {
 
     @Id
     @Column(name = "company_id")
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 
     @Column(name = "name")
@@ -40,10 +42,12 @@ public class Company {
 
     @OneToOne
     @JoinColumn(name = "image_id")
+    @Cascade(org.hibernate.annotations.CascadeType.PERSIST)
     private Image image;
 
     @OneToOne
     @JoinColumn(name = "user_id")
+    @Cascade(org.hibernate.annotations.CascadeType.PERSIST)
     private User user;
 
     @OneToMany(mappedBy = "company")

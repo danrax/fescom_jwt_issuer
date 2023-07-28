@@ -9,7 +9,8 @@ public class CompanyDto {
     private String email;
     private String description;
     private String name;
-    private String imageURL;
+    private String imageUrl;
+    private String videoUrl;
     private String validationToken;
 
 }
