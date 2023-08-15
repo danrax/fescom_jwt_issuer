@@ -15,4 +15,6 @@ public interface SkillMapper {
     @Mapping(target = "updatedAt", ignore = true)
     @Mapping(target = "candidate", ignore = true)
     Skill toEntity(SkillSet skillSet);
+
+    SkillSet toDto(Skill skill);
 }

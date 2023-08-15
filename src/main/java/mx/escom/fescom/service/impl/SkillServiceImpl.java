@@ -38,4 +38,19 @@ public class SkillServiceImpl implements SkillService {
         }
 
     }
+
+    @Override
+    public List<SkillSet> getAllSkills() {
+
+        List<SkillSet> skillSetList = new ArrayList<>();
+
+
+        skillRepository.findAll().forEach(skill -> {
+            skillSetList.add(SkillMapper.INSTANCE.toDto(skill) );
+        });
+
+        return skillSetList;
+    }
+
+
 }

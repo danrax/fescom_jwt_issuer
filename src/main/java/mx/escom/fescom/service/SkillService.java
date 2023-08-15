@@ -8,4 +8,6 @@ import java.util.List;
 public interface SkillService {
 
     void createSkills(List<SkillSet> skillSetList, Candidate candidate);
+
+    List<SkillSet> getAllSkills();
 }
