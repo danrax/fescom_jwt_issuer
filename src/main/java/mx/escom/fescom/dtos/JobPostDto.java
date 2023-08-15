@@ -8,6 +8,7 @@ import java.util.List;
 @Data
 public class JobPostDto {
 
+    Long id;
     String jobTitle;
     String jobType;
     String jobMode;

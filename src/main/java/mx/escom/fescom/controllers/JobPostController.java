@@ -1,7 +1,9 @@
 package mx.escom.fescom.controllers;
 
 
+import mx.escom.fescom.dtos.CandidateDto;
 import mx.escom.fescom.dtos.CompanyDto;
+import mx.escom.fescom.dtos.GenericResponse;
 import mx.escom.fescom.dtos.JobPostDto;
 import mx.escom.fescom.service.impl.JobPostServiceImpl;
 import org.apache.coyote.Response;
@@ -36,4 +38,31 @@ public class JobPostController {
     public ResponseEntity<JobPostDto> getJobPostById( @PathVariable Long id){
         return ResponseEntity.ok(jobPostService.getJobPostById(id));
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<JobPostDto> updateJobPost( @PathVariable Long id, @RequestBody JobPostDto jobPostDto){
+        jobPostDto.setId(id);
+        return ResponseEntity.ok(jobPostService.updateJobPost(jobPostDto));
+    }
+
+    @DeleteMapping("/{id}")
+    public  ResponseEntity<Void> deleteJobPost(@PathVariable Long id){
+
+        jobPostService.deleteJobPost(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/{id}/apply")
+    public ResponseEntity<JobPostDto> createJobApplication(@PathVariable Long id, @RequestBody CandidateDto candidateDto) {
+        jobPostService.apply(id, candidateDto);
+
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/{id}/candidates-applied")
+    public ResponseEntity<List<CandidateDto>> getCandidatesApplied(@PathVariable Long id){
+
+        return ResponseEntity.ok(jobPostService.getCandidatesAppliedToAJobsPost(id));
+    }
+
 }
