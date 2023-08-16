@@ -112,8 +112,8 @@ public class JobPostServiceImpl implements JobPostService {
         }
 
         JobPost jobPost = optionalJobPost.get();
-        Optional<JobApplication> optionalJobApplication = jobApplicationRepository.findByJobPost_IdAndCandidate_Id(
-                jobPost.getId(), candidate.get().getCandidateId());
+        Optional<JobApplication> optionalJobApplication = jobApplicationRepository.
+                findByJobPost_IdAndCandidate_CandidateId(jobPost.getId(), candidate.get().getCandidateId());
 
         if (optionalJobApplication.isPresent()){
             throw  new HttpClientErrorException(HttpStatus.BAD_REQUEST,"Candidate already applied to job");
