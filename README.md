@@ -6,6 +6,13 @@
 - Connection to a mysqlDB (8.0.30)
 - Docker (version 20.10.17)
 
+
+##Mofidications to project
+
+Go to the src/main/resources/application.yml file and replace the following with your information:
+- tag: <b>ip</b> with the ip address of the database.
+- tag: <b>your-password</b> with the database password.
+
 ## Install dependencies
 
 ```bash
