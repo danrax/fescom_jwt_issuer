@@ -5,7 +5,6 @@ plugins {
 }
 
 group = 'mx.escom.fescom'
-version = '0.0.1-SNAPSHOT'
 
 repositories {
 	mavenCentral()
