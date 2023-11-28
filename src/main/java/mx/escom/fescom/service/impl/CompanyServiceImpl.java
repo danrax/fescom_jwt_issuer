@@ -107,7 +107,8 @@ public class CompanyServiceImpl implements CompanyService {
         Company company = companyRepository.getReferenceById(companyId);
 
         if (ObjectUtils.isEmpty(company))
-            throw new HttpClientErrorException(HttpStatus.NOT_FOUND,"Company not found for id: " + companyId);
+            throw new HttpClientErrorException(HttpStatus.NOT_FOUND,
+                    "Company not found for id: " + companyId);
 
         return commsService.sendInvitationEmail(company);
     }

@@ -1,11 +1,14 @@
 package mx.escom.fescom.config;
 
 
+import org.javaswift.joss.client.factory.AccountConfig;
+import org.javaswift.joss.client.factory.AccountFactory;
+import org.javaswift.joss.client.factory.AuthenticationMethod;
+import org.javaswift.joss.model.Account;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 import javax.sql.DataSource;
@@ -24,7 +27,14 @@ public class FescomConfiguration {
     @Value("${spring.datasource.password}")
     private String password;
 
-/*    @Bean
+    @Value("${openstack.swift.username}") String storageUsername;
+    @Value("${openstack.swift.password}") String storagePassword;
+    @Value("${openstack.swift.container}") String storageContainer;
+    //@Value("${openstack.swift.tenant}") String storageTenantId;
+    @Value("${openstack.swift.url}") String storageUrl;
+    @Value("${openstack.swift.api_key}") String storageKey;
+
+    /*@Bean
     public DataSource dataSource() {
 
         DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
@@ -35,4 +45,17 @@ public class FescomConfiguration {
 
         return dataSourceBuilder.build();
     }*/
+
+    /*
+    * @Bean
+    public Account storageService(){
+        AccountConfig config = new AccountConfig();
+        config.setUsername(storageUsername);
+        config.setPassword(storageKey);
+        config.setAuthUrl(storageUrl);
+        config.setAuthenticationMethod(AuthenticationMethod.BASIC);
+        return new AccountFactory(config).createAccount();
+    }
+    * */
+
 }

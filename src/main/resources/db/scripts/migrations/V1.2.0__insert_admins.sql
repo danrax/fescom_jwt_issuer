@@ -1,0 +1,1 @@
+INSERT INTO `feria-dev`.users(user_id ,name, last_name, email, role_id) values (1, 'Daniel', 'Robledo', 'danrax@hotmail.com', (SELECT role_id  FROM roles WHERE roles.description  = 'ADMIN'));

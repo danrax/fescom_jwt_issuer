@@ -21,11 +21,6 @@ public class CompanyController {
         this.companyService = companyService;
     }
 
-    @PostMapping("/")
-    public ResponseEntity<CompanyDto> createCompany(@RequestBody CompanyDto companyDto) {
-        return ResponseEntity.ok(companyService.createCompany(companyDto));
-    }
-
 
     @PostMapping("/invite")
     public ResponseEntity<GenericResponse> inviteCompany(@RequestBody CompanyDto companyDto,
@@ -43,6 +38,19 @@ public class CompanyController {
     public ResponseEntity<GenericResponse> resendToken(@PathVariable Long companyId){
 
         return  ResponseEntity.ok(companyService.resendInvitation(companyId));
+    }
+
+    @GetMapping("/{companyId}/candidates-applied/{jobPostId}")
+    public ResponseEntity<Void> sendApplyCandidates( @PathVariable Long companyId,
+                                                     @PathVariable Long jobPostId){
+
+        companyService.sendApplyCandidates(companyId, jobPostId);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/")
+    public ResponseEntity<CompanyDto> createCompany(@RequestBody CompanyDto companyDto) {
+        return ResponseEntity.ok(companyService.createCompany(companyDto));
     }
 
     @GetMapping("/")
@@ -71,13 +79,6 @@ public class CompanyController {
 
         companyService.deleteCompany(companyId);
 
-        return ResponseEntity.noContent().build();
-    }
-
-    @GetMapping("/{companyId}/candidates-applied/{jobPostId}")
-    public ResponseEntity<Void> sendApplyCandidates( @PathVariable Long companyId, @PathVariable Long jobPostId){
-
-        companyService.sendApplyCandidates(companyId, jobPostId);
         return ResponseEntity.noContent().build();
     }
 

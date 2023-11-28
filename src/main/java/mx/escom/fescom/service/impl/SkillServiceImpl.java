@@ -44,7 +44,6 @@ public class SkillServiceImpl implements SkillService {
 
         List<SkillSet> skillSetList = new ArrayList<>();
 
-
         skillRepository.findAll().forEach(skill -> {
             skillSetList.add(SkillMapper.INSTANCE.toDto(skill) );
         });

@@ -53,7 +53,8 @@ public class JobPostController {
     }
 
     @PostMapping("/{id}/apply")
-    public ResponseEntity<JobPostDto> createJobApplication(@PathVariable Long id, @RequestBody CandidateDto candidateDto) {
+    public ResponseEntity<JobPostDto> createJobApplication(@PathVariable Long id,
+                                                           @RequestBody CandidateDto candidateDto) {
         jobPostService.apply(id, candidateDto);
 
         return ResponseEntity.ok().build();

@@ -8,24 +8,41 @@ spring:
   flyway:
     enabled: true
     locations: classpath:db/scripts/migrations
-    url: jdbc:mysql://<ip>:3306/feria-dev
+    url: jdbc:mysql://localhost:3306/feria-dev
     user: "root"
-    password: <your-password>
+    password: "daniel.58"
     schema: "roles"
     baselineOnMigrate: true
   datasource:
-    url: jdbc:mysql://<ip>:3306/feria-dev
+    url: jdbc:mysql://localhost:3306/feria-dev
     username: "root"
-    password: <your-password>
+    password: "daniel.58"
   jpa:
     hibernate:
       dialect: org.hibernate.dialect.MySQL8Dialect
       ddl-auto: update
+  main:
+    allow-circular-references: true
 
 rsa:
   private-key: classpath:certs/private.pem
   public-key: classpath:certs/public.pem
-
   hibernate:
     hbm2ddl:
       auto: update
+
+openstack:
+  swift:
+    url: "http://localhost:12345/auth/v1.0"
+    username: "test"
+    password: "tester"
+    container: "fescom"
+    api_key: "testing"
+
+keycloak:
+  enabled: true
+  realm: feria-dev
+  auth-server-url: http://localhost:8088/
+  resource: springboot-keycloak
+  public-client: true
+  bearer-only: true

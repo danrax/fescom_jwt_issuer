@@ -1,1 +1,0 @@
-INSERT INTO [user] (name, lastname, email, role_id) values ('Daniel', 'Robledo', 'danrax@hotmail.com', (SELECT id FROM role WHERE name = 'ADMIN'));

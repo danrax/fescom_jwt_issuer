@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping("/api/v1/auth")
+//@RestController
+//@RequestMapping("/api/v1/auth")
 public class AuthController {
 
     private static final Logger LOG = LoggerFactory.getLogger(AuthController.class);
@@ -22,12 +22,14 @@ public class AuthController {
         this.tokenService = tokenService;
     }
 
-    @PostMapping("/token")
+    /*
+    * @PostMapping("/token")
     public ResponseEntity<JwtResponse> authenticateUser(Authentication authentication) {
         LOG.debug("Token requested for user: '{}'", authentication.getName());
         JwtResponse token = tokenService.generateToken(authentication);
         LOG.debug("Token granted: {}", token);
         return ResponseEntity.ok(token);
     }
+    * */
 
 }

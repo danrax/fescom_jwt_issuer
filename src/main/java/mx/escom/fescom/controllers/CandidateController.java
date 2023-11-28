@@ -27,7 +27,6 @@ public class CandidateController {
         this.experienceDetailService = experienceDetailService;
     }
 
-
     @PostMapping("/register")
     public ResponseEntity<GenericResponse> register(@RequestBody CandidateDto candidate) {
         return ResponseEntity.ok(candidateService.createCandidate(candidate)) ;

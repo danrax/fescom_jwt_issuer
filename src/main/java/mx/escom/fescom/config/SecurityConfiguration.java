@@ -23,8 +23,11 @@ import org.springframework.security.oauth2.jwt.NimbusJwtEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
-@Configuration
+/*
+* @Configuration
 @EnableWebSecurity
+*
+* */
 public class SecurityConfiguration {
 
     private final RsaKeyProperties rsaKeys;
@@ -34,7 +37,11 @@ public class SecurityConfiguration {
         this.rsaKeys = rsaKeys;
     }
 
-    @Bean
+/*
+*
+*
+*
+* @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
                 .csrf(AbstractHttpConfigurer::disable)
@@ -46,8 +53,7 @@ public class SecurityConfiguration {
                 .httpBasic(Customizer.withDefaults())
                 .build();
     }
-
-    @Bean
+*     @Bean
     public InMemoryUserDetailsManager users() {
         return new InMemoryUserDetailsManager(
                 User.withUsername("danrax")
@@ -56,8 +62,11 @@ public class SecurityConfiguration {
                         .build()
         );
     }
+*
+* */
 
-    @Bean
+/*
+*     @Bean
     JwtDecoder jwtDecoder() {
         return NimbusJwtDecoder.withPublicKey(rsaKeys.publicKey()).build();
     }
@@ -68,5 +77,7 @@ public class SecurityConfiguration {
         JWKSource<SecurityContext> jwks = new ImmutableJWKSet<>(new JWKSet(jwk));
         return new NimbusJwtEncoder(jwks);
     }
+*
+* */
 
 }

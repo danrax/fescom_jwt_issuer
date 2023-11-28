@@ -28,7 +28,6 @@ import java.util.Optional;
 @Service
 public class JobPostServiceImpl implements JobPostService {
 
-
     private final JobPostRepository jobPostRepository;
     private final JobApplicationRepository jobApplicationRepository;
     private final CandidateRepository candidateRepository;

@@ -12,14 +12,15 @@ import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.stream.Collectors;
 
-@Service
+//@Service
 public class TokenService {
 
-    private final JwtEncoder encoder;
+    //private final JwtEncoder encoder;
 
     private static final Integer EXPIRATION_TIME_IN_SECONDS =3600;
 
-    public TokenService(JwtEncoder encoder) {
+    /*
+    * public TokenService(JwtEncoder encoder) {
         this.encoder = encoder;
     }
 
@@ -45,5 +46,7 @@ public class TokenService {
 
         return response;
     }
+    *
+    * */
 
 }

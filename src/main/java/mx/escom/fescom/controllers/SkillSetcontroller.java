@@ -21,6 +21,7 @@ public class SkillSetcontroller {
 
     @GetMapping("/")
     public ResponseEntity<List<SkillSet>> getAllSkillSets(){
+
         return ResponseEntity.ok(skillService.getAllSkills());
     }
 }
